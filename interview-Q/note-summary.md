@@ -30,7 +30,7 @@
   - [数据埋点分类](#数据埋点分类)
   - [app相关：](#app相关)
   - [种西瓜问题](#种西瓜问题)
-- [三种分类：](#三种分类)
+- [三种业务问题：](#三种业务问题)
   - [1.数据异常类问题的解决流程](#1数据异常类问题的解决流程)
     - [确定数据真实性-拆分数据维度-具体维度考察技术、产品、运营-进一步细化假设](#确定数据真实性-拆分数据维度-具体维度考察技术产品运营-进一步细化假设)
     - [1) 在实习中做异动指标分析的例子](#1-在实习中做异动指标分析的例子)
@@ -42,6 +42,19 @@
   - [3.复合指标分析（e.g ROI = 利润/成本）](#3复合指标分析eg-roi--利润成本)
   - [留存：](#留存)
 - [SQL：](#sql)
+  - [1.	除了distinct外还有什么方法去重](#1除了distinct外还有什么方法去重)
+  - [2.	窗口函数：](#2窗口函数)
+  - [3.	partition by 和 group by 的区别](#3partition-by-和-group-by-的区别)
+  - [4.	窗口函数里的排序函数](#4窗口函数里的排序函数)
+  - [5. 窗口函数里的聚合函数](#5-窗口函数里的聚合函数)
+  - [6. 窗口函数偏移函数](#6-窗口函数偏移函数)
+  - [7.	给主播id，主播类型，主播粉丝数，求每个类型主播粉丝数top100](#7给主播id主播类型主播粉丝数求每个类型主播粉丝数top100)
+  - [8.	sql执行顺序：](#8sql执行顺序)
+  - [9.  INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN](#9--inner-join-left-join-right-join-full-join)
+  - [10. 等值连接，笛卡尔积](#10-等值连接笛卡尔积)
+  - [11.  UNION 和UNION ALL的区别](#11--union-和union-all的区别)
+  - [12.  SQL行列转换](#12--sql行列转换)
+- [Hive：](#hive)
 - [五. 统计：](#五-统计)
 - [六：机器学习：](#六机器学习)
 
@@ -138,7 +151,7 @@ A：平均停留时长并不是一个非常好的指标，因为有可能只是�
 果农第一年在10亩地中试验，的确可以达到30%的提升。第二年全量使用，结果只有5%的提升，这是什么原因导致的？想出一个方法评估这一个肥料真实提高。
 2. 果农拉西瓜出去卖。拉100斤西瓜，然后每斤成本5元，卖10元一斤，卖完了所有的西瓜，赚了500元。请问果农怎么提高收入？（每天都只有100斤西瓜的供应量）
 3. 提高单价，会导致销量降低。假设，销量与单价之间满足销量y=a*单价x+b的函数。果农最大收益是多少？果农要用什么策略来提高价格？
-# 三种分类：
+# 三种业务问题：
 ## 1.数据异常类问题的解决流程
 ### 确定数据真实性-拆分数据维度-具体维度考察技术、产品、运营-进一步细化假设
 **定义流失用户**：行为（不登陆，付费），时间   
@@ -191,39 +204,74 @@ PEST模型
 有一个广告，如果上线，收入会每天增加2%，但是留存每天减少1.5%，现在每天收益是500万，新增用户30万，每吸收一个用户的成本是6块钱，那么判断一下广告要不要上线？   
 
 # SQL：
-1.	除了distinct外还有什么方法去重
+## 1.	除了distinct外还有什么方法去重
 Where + group by
-2.	窗口函数：
+## 2.	窗口函数：
 ```
 <窗口函数> over (partition by <用于分组的列名>
                 order by <用于排序的列名>)
 ```
-窗口函数：
+函数：
 ```
 专用：rank, dense_rank, row_number
 聚合：sum. avg, count, max, min
 ```
-3.	partition by 和 group by 的区别
+## 3.	partition by 和 group by 的区别
 partition by统计的每一条记录都存在，而group by将所有的记录汇总成一条记录
-4.	rank和row_number区别
-```
-ROW_NUMBER()函数作用就是将select查询到的数据进行排序
-RANK()函数，顾名思义排名函数，可以对某一个字段进行排名
-ROW_NUMBER()是排序，当存在相同成绩的学生时，ROW_NUMBER()会依次进行排序，他们序号不相同，而Rank()则不一样出现相同的，他们的排名是一样的
-```
-5.	窗口函数里的聚合函数
-聚合函数作为窗口函数，可以在每一行的数据里直观的看到，截止到本行数据，统计数据是多少（最大值、最小值等）。同时可以看出每一行数据，对整体统计数据的影响。
-6.	给主播id，主播类型，主播粉丝数，求每个类型主播粉丝数top100。
+## 4.	窗口函数里的排序函数
+ROW_NUMBER()函数:查询出来的每一行记录生成一个序号，依次排序且不会重复
+`select ROW_NUMBER() OVER(order by [SubTime] desc) as row_num,* from [Order] order by [TotalPrice] desc`
+RANK()函数:考虑到了over子句中排序字段值相同的情况
+`select RANK() OVER(order by [UserId]) as rank,* from [Order]` 
+DENSE_RANK()是排序，dense_rank函数在生成序号时是连续的，而rank函数生成的序号有可能不连续
+`select DENSE_RANK() OVER(order by [UserId]) as den_rank,* from [Order]`
+NTILE:可以对序号进行分组处理，将有序分区中的行分发到指定数目的组中
+`select NTILE(4) OVER(order by [SubTime] desc) as ntile,* from [Order]`
+![rank](https://raw.githubusercontent.com/TheonLiu/DA-Notes/main/pics/rank.png)
+
+## 5. 窗口函数里的聚合函数
+聚合函数作为窗口函数，可以在每一行的数据里直观的看到，截止到本行数据，统计数据是多少（最大值、最小值等）。同时可以看出每一行数据，对整体统计数据的影响。   
+    累计求和：  
+    ```
+    select product_id, product_name, sale_price,
+        sum(sale_price) over (order by product_id) as current_sum
+    from Product;
+    ```
+    累计求平均
+    ```
+    select product_id, product_name, sale_price,
+        avg(sale_price) over (order by product_id) as current_sum
+    from Product;   
+    ```
+## 6. 窗口函数偏移函数
+    LAG：向下偏移
+    LEAD：向上偏移
+    ```
+    LAG (scalar_expression [,offset] [,default])
+        OVER ( [ partition_by_clause ] order_by_clause )
+    LEAD ( scalar_expression [ ,offset ] , [ default ] ) 
+        OVER ( [ partition_by_clause ] order_by_clause )
+    ```
+    sclar_expression: 偏移的对象，即 旧列；
+    offset: 偏移量；eg: offset=n，表示偏移了 n 行数据；默认值是1，必须是正整数；
+    default: 偏移后的偏移区的取值；
+## 7.	给主播id，主播类型，主播粉丝数，求每个类型主播粉丝数top100
 用rank() over (partition by 类型 order by 粉丝数 desc) group by 主播类型 然后外头再套一层select *  where rank<=100
-7.	内部表和外部表区别?
-8.	where的搜索条件是在执行语句进行分组之前应用
-having的搜索条件是在分组条件后执行的
-7.  SQL行列转换
-8.  LEFT JOIN 和RIGHT JOIN 的区别
-9.  UNION 和UNION ALL的区别
-10. 最有印象的使用过的SQL的项目
-4.  hive, hadoop的原理
-5.  求留存率
+## 8.	sql执行顺序：
+    from -> join -> on -> where-> group by(开始使用select中的别名，后面的语句中都可以使用)-> avg,sum.... -> having ->select -> distinct -> order by-> limit 
+## 9.  INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN 
+## 10. 等值连接，笛卡尔积
+## 11.  UNION 和UNION ALL的区别
+    UNION: 结果集进行并集,不包括重复行
+    UNION ALL：结果取并集，包括重复行
+## 12.  SQL行列转换
+
+# Hive：
+1.  hive, hadoop的原理
+1.	与mysql的区别：map-reduce、数据吞吐量量
+5.	hive和mysql都支持不等式关联吗
+6.	数据倾斜
+
 # 五. 统计：
 1.	皮尔森相关系数以及如何解读，相关、独立、线性相关区别
 Pearson 相关系数是用协方差除以两个变量的标准差得到
