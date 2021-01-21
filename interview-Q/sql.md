@@ -60,7 +60,13 @@ NTILE:可以对序号进行分组处理，将有序分区中的行分发到指�
     UNION: 结果集进行并集,不包括重复行
     UNION ALL：结果取并集，包括重复行
 ## 12.  SQL行列转换
-
+## count(1)：
+就是统计在分组中，每一组对应的行数或项数。效率和作用和count(*)相同
+## DATE_SUB(date,INTERVAL expr type)
+从日期减去指定的时间间隔
+date 参数是合法的日期表达式
+expr 参数是您希望添加的时间间隔
+type 参数 DAY WEEK等
 # Hive：
 1.  hive, hadoop的原理
 1.	与mysql的区别：map-reduce、数据吞吐量量
