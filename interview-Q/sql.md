@@ -67,6 +67,28 @@ NTILE:可以对序号进行分组处理，将有序分区中的行分发到指�
 date 参数是合法的日期表达式
 expr 参数是您希望添加的时间间隔
 type 参数 DAY WEEK等
+## 判断空
+is null / is not null
+
+## Ifnull (expression, alt_value)
+处理空值
+## 去语义
+' '
+## lead
+## delete语句
+## 日期
+NOW()	返回当前的日期和时间
+CURDATE()	返回当前的日期
+CURTIME()	返回当前的时间
+DATE()	提取日期或日期/时间表达式的日期部分
+EXTRACT()	返回日期/时间按的单独部分
+DATE_ADD()	给日期添加指定的时间间隔
+DATE_SUB()	从日期减去指定的时间间隔
+DATEDIFF()	返回两个日期之间的天数
+DATE_FORMAT()	用不同的格式显示日期/时间
+## 主键/外键
+主键：每个表必须有，唯一，不为空
+外键：指向另一个表中的主键
 # Hive：
 1.  hive, hadoop的原理
 1.	与mysql的区别：map-reduce、数据吞吐量量
