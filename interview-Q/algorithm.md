@@ -24,3 +24,5 @@
 [reverse-nodes-in-k-group](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
 ### 堆栈队列
 栈：先入后出
+队列：先入先出
+[时间复杂度](http://www.bigocheatsheet.com)
