@@ -23,6 +23,14 @@
 [linked-list-cycle-ii](https://leetcode-cn.com/problems/linked-list-cycle/)
 [reverse-nodes-in-k-group](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
 ### 堆栈队列
-栈：先入后出
-队列：先入先出
-[时间复杂度](http://www.bigocheatsheet.com)
+1) 堆栈：先入后出stack
+2) 队列：先入先出Queue
+push, pop, peek
+![时间复杂度](https://github.com/TheonLiu/DA-Notes/blob/main/pics/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E6%9D%82%E5%BA%A6.png?raw=true)
+[valid-parentheses](https://leetcode-cn.com/problems/valid-parentheses/)
+用字典，匹配就弹出，不匹配就返回错
+[implement-queue-using-stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/) 
+[implement-stack-using-queues](https://leetcode-cn.com/problems/implement-stack-using-queues/)
+3) 优先队列：PriorityQueue
+* Heap
+* Binary Search Tree
