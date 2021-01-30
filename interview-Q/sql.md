@@ -1,3 +1,30 @@
+<!-- TOC -->
+
+- [SQL：](#sql)
+  - [1.	除了distinct外还有什么方法去重](#1除了distinct外还有什么方法去重)
+  - [2.	窗口函数：](#2窗口函数)
+  - [3.	partition by 和 group by 的区别](#3partition-by-和-group-by-的区别)
+  - [4.	窗口函数里的排序函数](#4窗口函数里的排序函数)
+  - [5. 窗口函数里的聚合函数](#5-窗口函数里的聚合函数)
+  - [6. 窗口函数偏移函数](#6-窗口函数偏移函数)
+  - [7.	给主播id，主播类型，主播粉丝数，求每个类型主播粉丝数top100](#7给主播id主播类型主播粉丝数求每个类型主播粉丝数top100)
+  - [8.	sql执行顺序：](#8sql执行顺序)
+  - [9.  INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN](#9--inner-join-left-join-right-join-full-join)
+  - [10. 等值连接，笛卡尔积](#10-等值连接笛卡尔积)
+  - [11.  UNION 和UNION ALL的区别](#11--union-和union-all的区别)
+  - [12.  SQL行列转换](#12--sql行列转换)
+  - [count(1)：](#count1)
+  - [DATE_SUB(date,INTERVAL expr type)](#date_subdateinterval-expr-type)
+  - [判断空](#判断空)
+  - [Ifnull (expression, alt_value)](#ifnull-expression-alt_value)
+  - [去语义](#去语义)
+  - [lead](#lead)
+  - [delete语句](#delete语句)
+  - [日期](#日期)
+  - [主键/外键](#主键外键)
+- [Hive：](#hive)
+
+<!-- /TOC -->
 # SQL：
 ## 1.	除了distinct外还有什么方法去重
 Where + group by
