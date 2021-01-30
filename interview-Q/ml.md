@@ -21,6 +21,11 @@
   - [softmax损失函数](#softmax损失函数)
     - [逻辑回归：](#逻辑回归)
     - [logistics regression的损失函数方程](#logistics-regression的损失函数方程)
+    - [Linear Regression:](#linear-regression)
+    - [Logistic Regression](#logistic-regression)
+      - [**Logistic regression model**:](#logistic-regression-model)
+      - [Classification rule:](#classification-rule)
+      - [Linear v.s. logistic probabilistic models](#linear-vs-logistic-probabilistic-models)
     - [LR和SVM区别](#lr和svm区别)
     - [LR，SVM中数据之间应该满足什么条件](#lrsvm中数据之间应该满足什么条件)
     - [Kmeans，KNN区别](#kmeansknn区别)
@@ -88,7 +93,41 @@
 ### 逻辑回归：
 ### logistics regression的损失函数方程
 
-svm
+### Linear Regression:
+
+**$L_1$ and $L_2$ norms**
+* Norm: length of vectors
+* $L_2$ norm (aka. Euclidean distance)
+  * $||a|| = ||a||_2 \equiv \sqrt{a_1^2 + ... + a_n^2}$
+* $L_1$ norm (aka. Manhattan distance)
+  * $||a||_1 \equiv |a_1| + ... + |a_n|$
+
+**Linear Regression optimization**:损失函数
+* To find $\beta$, minimize the **sum of squared errors**:
+  * $SSE/RSS = \sum_{i=1}^n (y_i - \sum_{j=0}^m X_{ij}\beta_{j})^2$
+* Setting derivative to zero and solve for $\beta$: (normal equation)
+  * $b = (X^TX)^{-1}X^{T}y$
+  * Well defined only if the inverse exists
+  
+### Logistic Regression
+#### **Logistic regression model**:
+* $P(Y = 1 | x) = \frac{1}{1 + \text{exp}(-x^T\beta)}$
+#### Classification rule:
+  * Class "1" 
+      * If $P(Y=1 | x) = \frac{1}{\exp(-x^{T}\beta)} > \frac{1}{2}$
+      * Else class "0"
+  * Decision boundary (line): 
+      * $P(Y = 1 | x) = \frac{1}{1 + \text{exp}(-x^T\beta)} = \frac{1}{2}$
+      * Equivalently, $P(Y = 0 | x) = P(Y = 1 | x)$
+#### Linear v.s. logistic probabilistic models
+* Linear regression
+  * Assume $\epsilon \sim N(0, \sigma^2)$
+  * Therefore assume $y \sim N(X\beta, \sigma^2)$
+* Logistic regression
+  * Assume $y \sim Bernoulli(p = logistic(x^{T}\beta))$
+
+svm:
+
 **svm如何处理高维特征**
 **SVM优化过程**
 ### LR和SVM区别

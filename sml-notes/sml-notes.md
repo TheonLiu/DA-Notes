@@ -1,36 +1,36 @@
 <!-- TOC -->
 
-    - [Lecture 1: Introduction Probability Theory](#lecture-1-introduction-probability-theory)
-        - [Terminologies](#terminologies)
-        - [Supervised v.s. Unsupervised](#supervised-vs-unsupervised)
-        - [Evaluation](#evaluation)
-    - [Lecture 2: Statistical Schools of Thoughts](#lecture-2-statistical-schools-of-thoughts)
-        - [Frequentist statistics](#frequentist-statistics)
-        - [Decision Theory](#decision-theory)
-        - [Risk & Empirical Risk Minimization (ERM)](#risk--empirical-risk-minimization-erm)
-        - [Mean Squared Error (of parameter estimator)](#mean-squared-error-of-parameter-estimator)
-        - [Bayesian Statistics](#bayesian-statistics)
-        - [Categories of Probabilistic Models](#categories-of-probabilistic-models)
-    - [Lecture 3: Linear Regression & Optimisation](#lecture-3-linear-regression--optimisation)
-        - [Linear Regression](#linear-regression)
-        - [Optimization](#optimization)
-        - [Coordinate descent](#coordinate-descent)
-        - [Gradient descent](#gradient-descent)
-        - [Convex objective functions](#convex-objective-functions)
-        - [$L_1$ and $L_2$ norms](#l_1-and-l_2-norms)
-        - [Linear Regression optimization: Least Square Method](#linear-regression-optimization-least-square-method)
-    - [Lecture 4: Logistic Regression & Basis Expansion](#lecture-4-logistic-regression--basis-expansion)
-        - [Logistic Regression](#logistic-regression)
-        - [Linear v.s. logistic probabilistic models](#linear-vs-logistic-probabilistic-models)
-        - [Logistic MLE](#logistic-mle)
-        - [Information divergence (extra)](#information-divergence-extra)
-        - [Cross entropy](#cross-entropy)
-        - [Training as cross-entropy minimisation](#training-as-cross-entropy-minimisation)
-        - [Basis Expansion (Data transformation)](#basis-expansion-data-transformation)
+- [Lecture 1: Introduction Probability Theory](#lecture-1-introduction-probability-theory)
+    - [Terminologies](#terminologies)
+    - [Supervised v.s. Unsupervised](#supervised-vs-unsupervised)
+    - [Evaluation](#evaluation)
+- [Lecture 2: Statistical Schools of Thoughts](#lecture-2-statistical-schools-of-thoughts)
+    - [Frequentist statistics](#frequentist-statistics)
+    - [Decision Theory](#decision-theory)
+    - [Risk & Empirical Risk Minimization (ERM)](#risk--empirical-risk-minimization-erm)
+    - [Mean Squared Error (of parameter estimator)](#mean-squared-error-of-parameter-estimator)
+    - [Bayesian Statistics](#bayesian-statistics)
+    - [Categories of Probabilistic Models](#categories-of-probabilistic-models)
+- [Lecture 3: Linear Regression & Optimisation](#lecture-3-linear-regression--optimisation)
+    - [Linear Regression](#linear-regression)
+    - [Optimization](#optimization)
+    - [Coordinate descent](#coordinate-descent)
+    - [Gradient descent](#gradient-descent)
+    - [Convex objective functions](#convex-objective-functions)
+    - [$L_1$ and $L_2$ norms](#l_1-and-l_2-norms)
+    - [Linear Regression optimization: Least Square Method](#linear-regression-optimization-least-square-method)
+- [Lecture 4: Logistic Regression & Basis Expansion](#lecture-4-logistic-regression--basis-expansion)
+    - [Logistic Regression](#logistic-regression)
+    - [Linear v.s. logistic probabilistic models](#linear-vs-logistic-probabilistic-models)
+    - [Logistic MLE](#logistic-mle)
+    - [Information divergence (extra)](#information-divergence-extra)
+    - [Cross entropy](#cross-entropy)
+    - [Training as cross-entropy minimisation](#training-as-cross-entropy-minimisation)
+    - [Basis Expansion (Data transformation)](#basis-expansion-data-transformation)
 - [Radial basis functions (RBFs)](#radial-basis-functions-rbfs)
     - [Challenges of basis expansion (data transformation)](#challenges-of-basis-expansion-data-transformation)
     - [Taking the idea of basis expansion to the next level](#taking-the-idea-of-basis-expansion-to-the-next-level)
-  - [Lecture 5: Regularisation](#lecture-5-regularisation)
+- [Lecture 5: Regularisation](#lecture-5-regularisation)
     - [Irrelevant / Multicolinear features](#irrelevant--multicolinear-features)
     - [Ill-posed problems](#ill-posed-problems)
     - [Re-conditioning the problem (Ridge Regression)](#re-conditioning-the-problem-ridge-regression)
@@ -41,12 +41,12 @@
     - [Regulariser as a constraint](#regulariser-as-a-constraint)
     - [Closed form solutions](#closed-form-solutions)
     - [Bias-variance trade-off](#bias-variance-trade-off)
-  - [Lecture 6: Perceptron](#lecture-6-perceptron)
+- [Lecture 6: Perceptron](#lecture-6-perceptron)
     - [Artificial Neural Network (RNN, CNN, MLP)](#artificial-neural-network-rnn-cnn-mlp)
     - [Perceptron](#perceptron)
     - [Stochastic gradient descent (SGD)](#stochastic-gradient-descent-sgd)
     - [Perceptron training algorithm (SDG with batch size 1)](#perceptron-training-algorithm-sdg-with-batch-size-1)
-  - [Lecture 7: Multilayer Perceptron (MLP) Backpropagation](#lecture-7-multilayer-perceptron-mlp-backpropagation)
+- [Lecture 7: Multilayer Perceptron (MLP) Backpropagation](#lecture-7-multilayer-perceptron-mlp-backpropagation)
     - [Multilayer Perceptron](#multilayer-perceptron)
     - [ANN](#ann)
     - [Loss function for ANN training](#loss-function-for-ann-training)
@@ -54,7 +54,7 @@
     - [Backpropagation (for updating weights)](#backpropagation-for-updating-weights)
     - [Forward propagation (just compute outputs for each layer, make predictions)](#forward-propagation-just-compute-outputs-for-each-layer-make-predictions)
     - [Further notes on ANN](#further-notes-on-ann)
-  - [Lecture 8: Deep learning, CNN, Autoencoders](#lecture-8-deep-learning-cnn-autoencoders)
+- [Lecture 8: Deep learning, CNN, Autoencoders](#lecture-8-deep-learning-cnn-autoencoders)
     - [Deep learning](#deep-learning)
     - [Representation learning](#representation-learning)
     - [Depth v.s. width](#depth-vs-width)
@@ -65,7 +65,7 @@
     - [Autoencoder](#autoencoder)
     - [Bottleneck](#bottleneck)
     - [Dimensionality reduction](#dimensionality-reduction)
-  - [Lecture 9: Support Vector Machine](#lecture-9-support-vector-machine)
+- [Lecture 9: Support Vector Machine](#lecture-9-support-vector-machine)
     - [Linear hard-margin SVM](#linear-hard-margin-svm)
     - [SVM vs. Perceptron](#svm-vs-perceptron)
     - [Separation boundary](#separation-boundary)
@@ -73,7 +73,7 @@
     - [SVM Parameters](#svm-parameters)
     - [SVM: Finding separating boundary](#svm-finding-separating-boundary)
     - [SVM as regularised ERM](#svm-as-regularised-erm)
-  - [Lecture 10: Soft-Margin SVM, Lagrangian Duality](#lecture-10-soft-margin-svm-lagrangian-duality)
+- [Lecture 10: Soft-Margin SVM, Lagrangian Duality](#lecture-10-soft-margin-svm-lagrangian-duality)
     - [Soft-Margin SVM](#soft-margin-svm)
     - [Hinge loss: soft-margin SVM loss](#hinge-loss-soft-margin-svm-loss)
     - [Soft-Margin SVM Objective](#soft-margin-svm-objective)
@@ -85,13 +85,13 @@
     - [Optimisation for Soft-margin SVM](#optimisation-for-soft-margin-svm)
     - [Complementary slackness](#complementary-slackness)
     - [Training SVM](#training-svm)
-  - [Lecture 11: Kernel Methods](#lecture-11-kernel-methods)
+- [Lecture 11: Kernel Methods](#lecture-11-kernel-methods)
     - [Kernelising the SVM](#kernelising-the-svm)
     - [Kernel representation](#kernel-representation)
     - [Approaches to non-linearity](#approaches-to-non-linearity)
     - [Modular learning](#modular-learning)
     - [Constructing kernels](#constructing-kernels)
-  - [Lecture 12: Ensemble methods](#lecture-12-ensemble-methods)
+- [Lecture 12: Ensemble methods](#lecture-12-ensemble-methods)
     - [Combining models (Ensembling)](#combining-models-ensembling)
     - [Bagging (bootstrap aggregating)](#bagging-bootstrap-aggregating)
     - [Using out-of-sample data](#using-out-of-sample-data)
@@ -99,14 +99,14 @@
     - [Adaboost](#adaboost)
     - [Bagging v.s. Boosting](#bagging-vs-boosting)
     - [Stacking](#stacking)
-  - [Lecture 13: Multi-armed bandits](#lecture-13-multi-armed-bandits)
+- [Lecture 13: Multi-armed bandits](#lecture-13-multi-armed-bandits)
     - [Stochastic multi-armed bandits](#stochastic-multi-armed-bandits)
     - [Exploration v.s. Exploitation](#exploration-vs-exploitation)
     - [Stochastic MAB setting](#stochastic-mab-setting)
     - [Greedy](#greedy)
     - [$\epsilon$-Greedy](#epsilon-greedy)
     - [Upper Confidence Bound (UCB)](#upper-confidence-bound-ucb)
-  - [Lecture 14: Bayesian regression](#lecture-14-bayesian-regression)
+- [Lecture 14: Bayesian regression](#lecture-14-bayesian-regression)
     - [Bayesian Inference](#bayesian-inference)
     - [Frequentist v.s. Bayesian](#frequentist-vs-bayesian)
     - [Bayesian Regression](#bayesian-regression)
@@ -114,11 +114,11 @@
     - [Stages of Training](#stages-of-training)
     - [Prediction with uncertain $w$](#prediction-with-uncertain-w)
     - [Caveats (Notes)](#caveats-notes)
-  - [Lecture 15: Bayesian classification](#lecture-15-bayesian-classification)
+- [Lecture 15: Bayesian classification](#lecture-15-bayesian-classification)
     - [Discrete Conjugate prior](#discrete-conjugate-prior)
     - [Suite of useful conjugate priors](#suite-of-useful-conjugate-priors)
     - [Bayesian Logistic Regression](#bayesian-logistic-regression)
-  - [Lecture 16: PGM Representation](#lecture-16-pgm-representation)
+- [Lecture 16: PGM Representation](#lecture-16-pgm-representation)
     - [PGM](#pgm)
     - [Bayesian statistical learning v.s. PGM (aka. "Bayes Nets")](#bayesian-statistical-learning-vs-pgm-aka-bayes-nets)
     - [Joint distribution](#joint-distribution)
@@ -132,11 +132,11 @@
     - [Directed to undirected](#directed-to-undirected)
     - [Why U-PGM](#why-u-pgm)
     - [PGM examples](#pgm-examples)
-  - [Lecture 17: PGM Probabilistic and Statistical Inference](#lecture-17-pgm-probabilistic-and-statistical-inference)
+- [Lecture 17: PGM Probabilistic and Statistical Inference](#lecture-17-pgm-probabilistic-and-statistical-inference)
     - [Probabilistic inference on PGMs](#probabilistic-inference-on-pgms)
     - [Elimination algorithm](#elimination-algorithm)
     - [Statistical inference on PGMs](#statistical-inference-on-pgms)
-  - [Lecture 18: Gaussian Mixture Model, Expectation Maximization](#lecture-18-gaussian-mixture-model-expectation-maximization)
+- [Lecture 18: Gaussian Mixture Model, Expectation Maximization](#lecture-18-gaussian-mixture-model-expectation-maximization)
     - [Unsupervised learning](#unsupervised-learning)
     - [Gaussian Mixture Model (GMM)](#gaussian-mixture-model-gmm)
     - [Clustering as model estimation](#clustering-as-model-estimation)
@@ -147,7 +147,7 @@
     - [Not-Examinable Part](#not-examinable-part)
     - [Estimating Parameters of GMM](#estimating-parameters-of-gmm)
     - [K-means as a EM for a restricted GMM](#k-means-as-a-em-for-a-restricted-gmm)
-  - [Lecture 19: Dimensionality Reduction](#lecture-19-dimensionality-reduction)
+- [Lecture 19: Dimensionality Reduction](#lecture-19-dimensionality-reduction)
     - [Dimensionality reduction](#dimensionality-reduction-1)
     - [Pricinpal component analysis (PCA)](#pricinpal-component-analysis-pca)
     - [Formulating the problem](#formulating-the-problem)
@@ -158,7 +158,8 @@
     - [Non-linear data and kernel PCA](#non-linear-data-and-kernel-pca)
 
 <!-- /TOC -->
-### Lecture 1: Introduction Probability Theory
+
+## Lecture 1: Introduction Probability Theory
 
 #### Terminologies
 * **Instance**: measurements about individual entities/objects (no label)
@@ -186,7 +187,7 @@ Probability相关的部分就不写了
 
 ---
 
-### Lecture 2: Statistical Schools of Thoughts
+## Lecture 2: Statistical Schools of Thoughts
 
 #### Frequentist statistics
 * Unknown params are treated as having fixed but unknown values
@@ -278,7 +279,7 @@ Probability相关的部分就不写了
      * Model conditional $P(Y|X)$ only (directly)
      * E.g. Linear Regression
 
-### Lecture 3: Linear Regression & Optimisation
+## Lecture 3: Linear Regression & Optimisation
 
 #### Linear Regression
 * Assume a probabilistic model
@@ -355,7 +356,7 @@ Probability相关的部分就不写了
 
 ---
 
-### Lecture 4: Logistic Regression & Basis Expansion
+## Lecture 4: Logistic Regression & Basis Expansion
 
 #### Logistic Regression
 * Why not linear regression for classification?
@@ -477,7 +478,7 @@ Probability相关的部分就不写了
   * E.g. SVM
 
 
-### Lecture 5: Regularisation
+## Lecture 5: Regularisation
 
 #### Irrelevant / Multicolinear features
 * Co-linearity between features
@@ -606,7 +607,7 @@ $$
 
 ---
 
-### Lecture 6: Perceptron
+## Lecture 6: Perceptron
 
 #### Artificial Neural Network (RNN, CNN, MLP)
 * A network of processing elements
@@ -660,7 +661,7 @@ $$
     * If the data is not linearly separable, the training will fail completely rather than give some approx. solution
 
 
-### Lecture 7: Multilayer Perceptron (MLP) Backpropagation
+## Lecture 7: Multilayer Perceptron (MLP) Backpropagation
 
 #### Multilayer Perceptron
 * Modelling non-linearity via **function composition (构成)**
@@ -737,7 +738,7 @@ We have
   * With some activation functions this also shrinks the ANN towards a linear model
 
 
-### Lecture 8: Deep learning, CNN, Autoencoders
+## Lecture 8: Deep learning, CNN, Autoencoders
 
 #### Deep learning
 * ANNs with a single hidden layer are **universal approximators**
@@ -811,7 +812,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
 * Autoencoders can used for **compression** and **dimensionality reduction** via a non-linear **transformation**
 * If you use **linear activation functions** and **only one hidden layer**, then the setup becomes almost that of **PCA**
 
-### Lecture 9: Support Vector Machine
+## Lecture 9: Support Vector Machine
 
 #### Linear hard-margin SVM
 * **Binary classifier**
@@ -884,7 +885,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
       * $l_\infty = 0$ if prediction correct
       * $l_\infty = \infty$ if prediction wrong (give infinite loss to make perfect separation)
 
-### Lecture 10: Soft-Margin SVM, Lagrangian Duality
+## Lecture 10: Soft-Margin SVM, Lagrangian Duality
 
 #### Soft-Margin SVM
 * One of the three approach to fit non-linearly separable data
@@ -1006,7 +1007,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
 * Inefficient
 * Many $\lambda$s will be zero (sparsity)
 
-### Lecture 11: Kernel Methods
+## Lecture 11: Kernel Methods
 
 #### Kernelising the SVM
 * Two ways to handle non-linear data with SVM
@@ -1086,7 +1087,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
        * $K(x_i, x_j)$ is a **valid kernel** if this matrix is **positive semi-definite (PSD)**, and this holds for all possible sequence $x_1, ..., x_n$
 * Remember we need $K(u,v)$ to imply a dot product in some feature space
 
-### Lecture 12: Ensemble methods
+## Lecture 12: Ensemble methods
 
 #### Combining models (Ensembling)
 * Construct a set of base models (learners) from given training set and aggregates the outputs into a single meta-model (ensemble)
@@ -1181,7 +1182,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
     * Able to combine heterogeneous classifiers with varying performance
     * With care, stacking results in as good or better results **than the best of the base classifier**
 
-### Lecture 13: Multi-armed bandits
+## Lecture 13: Multi-armed bandits
 
 #### Stochastic multi-armed bandits
 * Learn to take actions
@@ -1266,7 +1267,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
     * Captures different $\epsilon$ rates & bounded rewards outside [0,1]
     * Many variations e.g. different confidence bounds
 
-### Lecture 14: Bayesian regression
+## Lecture 14: Bayesian regression
 
 #### Bayesian Inference
 * Idea
@@ -1333,7 +1334,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
   * sigma^2$
   * data was drawn from the model distribution
 
-### Lecture 15: Bayesian classification
+## Lecture 15: Bayesian classification
 
 #### Discrete Conjugate prior
 * Example:
@@ -1365,7 +1366,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
   * Assume posterior $\approx$ Normal about mode
   * Can compute normalisation constant, draw samples, etc.
 
-### Lecture 16: PGM Representation
+## Lecture 16: PGM Representation
 
 #### PGM
 * Mariage of graph theory and probability theory
@@ -1536,7 +1537,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
 
 <img src="pic/crf.png" width="400">
 
-### Lecture 17: PGM Probabilistic and Statistical Inference
+## Lecture 17: PGM Probabilistic and Statistical Inference
 
 #### Probabilistic inference on PGMs
 * Computing marginal and conditional distributions from the joint of a PGM 
@@ -1578,7 +1579,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
        * This won't decouple
    * Solution: Use **EM algorithm** !
 
-### Lecture 18: Gaussian Mixture Model, Expectation Maximization
+## Lecture 18: Gaussian Mixture Model, Expectation Maximization
 
 #### Unsupervised learning
 * Aim: explore the structure (pattern, regularities) of the data
@@ -1701,7 +1702,7 @@ $$ v = max(u_{11}, u_{12}, ..., u_{mm}) $$
 * Results in E-step: $\mu_c$ should be set as a centroid of points assigned to cluster $c$
 * => k-means algorithm
 
-### Lecture 19: Dimensionality Reduction
+## Lecture 19: Dimensionality Reduction
 
 #### Dimensionality reduction
 * Representing data using **a smaller number of variables** while preserving the "interesting" structure of the data
