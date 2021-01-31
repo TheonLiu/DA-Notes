@@ -1,4 +1,5 @@
 # Spark
+RDD,DsataFrame，DataSe模型
 ## 数据倾斜
 原因：并行处理的数据集中，某一部分（如 Spark 或 Kafka 的一个 Partition）的数据显著多于其它部分，从而使得该部分的处理速度成为整个数据集处理的瓶颈（木桶效应）
 方案：

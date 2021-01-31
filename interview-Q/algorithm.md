@@ -1,6 +1,7 @@
 <!-- TOC -->
 
 - [Algorithm](#algorithm)
+  - [题集](#题集)
   - [数组](#数组)
   - [链表](#链表)
     - [习题](#习题)
@@ -12,11 +13,28 @@
   - [映射(Map) & 集合(Set)](#映射map--集合set)
     - [习题](#习题-2)
   - [树和图](#树和图)
+    - [二叉树遍历](#二叉树遍历)
     - [习题](#习题-3)
 
 <!-- /TOC -->
 # Algorithm
 >[视频地址](https://www.bilibili.com/video/BV1jb41177EU?p=5)
+## 题集
+>[反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+[ 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+[环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+[环形链表-ii](https://leetcode-cn.com/problems/linked-list-cycle/)
+[ K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+[有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+[用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/) 
+[用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/)
+[数据流中的第 K 大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)
+[滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
+[有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
+[两数之和](https://leetcode-cn.com/problems/two-sum/)
+[三数之和](https://leetcode-cn.com/problems/3sum/)
+[验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+[二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 ## 数组
 查询：复杂度O(1), 插入/删除： 复杂度O(n)
 ## 链表
@@ -102,6 +120,7 @@ Tree, Binary Tree, Binary Search Tree, Graph
 树：相当于有两个next
 图：next指向父亲或根节点
 二叉搜索树：左子树所有节根节点点均小于根节点；右字数节点均大于节点。访问时间：o(log2n)
+### 二叉树遍历
 先序：根左右Preorder
 中序：左根右Inorder
 后序：左右根Bacorder
@@ -111,4 +130,10 @@ Tree, Binary Tree, Binary Search Tree, Graph
 * 递归。Valiadate(..., min, max)
     max<-calidate(node.left)
     min<-validate(node.right)
+
+[二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+* 两个指针，找父节点路径
+* 递归。
+[二叉树层次遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+BFS：
 

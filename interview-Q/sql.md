@@ -1,6 +1,7 @@
 <!-- TOC -->
 
 - [SQL：](#sql)
+  - [题目集](#题目集)
   - [1.	除了distinct外还有什么方法去重](#1除了distinct外还有什么方法去重)
   - [2.	窗口函数：](#2窗口函数)
   - [3.	partition by 和 group by 的区别](#3partition-by-和-group-by-的区别)
@@ -26,6 +27,21 @@
 
 <!-- /TOC -->
 # SQL：
+## 题目集
+>[数据库](https://leetcode-cn.com/problemset/database/)
+>[组合两个表](https://leetcode-cn.com/problems/combine-two-tables/)
+>[第二高薪水](https://leetcode-cn.com/problems/second-highest-salary/)
+>[第n高](https://leetcode-cn.com/problems/nth-highest-salary/)
+>[分数排名](https://leetcode-cn.com/problems/rank-scores/)
+>[连续出现的数字](https://leetcode-cn.com/problems/consecutive-numbers/)
+>[连续三个数字](https://leetcode-cn.com/problems/consecutive-numbers/)
+>[超过经理的员工](https://leetcode-cn.com/problems/employees-earning-more-than-their-managers/)
+>[查找重复电子邮箱](https://leetcode-cn.com/problems/duplicate-emails/)
+>[删除重复电子邮箱](https://leetcode-cn.com/problems/delete-duplicate-emails/)
+>[从不订购的客户](https://leetcode-cn.com/problems/customers-who-never-order/)
+>[部门最高的员工](https://leetcode-cn.com/problems/department-highest-salary/)
+>[部门前三高工资的员工](https://leetcode-cn.com/problems/department-top-three-salaries/)
+
 ## 1.	除了distinct外还有什么方法去重
 Where + group by
 ## 2.	窗口函数：
