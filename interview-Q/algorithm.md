@@ -15,6 +15,14 @@
   - [树和图](#树和图)
     - [二叉树遍历](#二叉树遍历)
     - [习题](#习题-3)
+  - [递归分治](#递归分治)
+    - [习题](#习题-4)
+  - [贪心算法](#贪心算法)
+    - [习题](#习题-5)
+  - [深度优先/广度优先](#深度优先广度优先)
+    - [习题](#习题-6)
+  - [剪枝](#剪枝)
+    - [习题](#习题-7)
 
 <!-- /TOC -->
 # Algorithm
@@ -35,6 +43,17 @@
 [三数之和](https://leetcode-cn.com/problems/3sum/)
 [验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 [二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+[二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+[二叉树层次遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+[Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+[多数元素](https://leetcode-cn.com/problems/majority-element/)
+[买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+[二叉树最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+[二叉树最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
+[括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+[N皇后](https://leetcode-cn.com/problems/n-queens/)
+[N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)
+
 ## 数组
 查询：复杂度O(1), 插入/删除： 复杂度O(n)
 ## 链表
@@ -136,4 +155,43 @@ Tree, Binary Tree, Binary Search Tree, Graph
 * 递归。
 [二叉树层次遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 BFS：
+## 递归分治
+### 习题
+[Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+* 调库函数O(1)
+* 暴力O(n)
+* 分治O($log_{2}{n}$)
+* 位运算
 
+[多数元素](https://leetcode-cn.com/problems/majority-element/)
+* 暴力 复杂度O(n2)
+* Map 复杂度O(n)
+* 排序 复杂度O($nlogn$)
+* 分治
+## 贪心算法
+适用场景：子问题最优解能递推到最终问题最优解。
+[]()
+### 习题
+[买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+* DFS -> 递归
+* 贪心算法
+* 动态规划
+## 深度优先/广度优先
+### 习题
+[二叉树最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+[二叉树最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
+* 递归分治
+* BFS
+* DFS
+
+[括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+* 数学归纳法
+* 深度优先搜索 $O(2^{2n})$
+* 深度优先+剪枝 $O(2^n)$
+    局部不合法不再递归。
+    left_uesd, right_uesd
+## 剪枝
+搜索里常用(BFS, DFS)
+### 习题
+[N皇后](https://leetcode-cn.com/problems/n-queens/)
+[N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)
