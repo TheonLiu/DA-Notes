@@ -156,6 +156,10 @@ Tree, Binary Tree, Binary Search Tree, Graph
 [二叉树层次遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 BFS：
 ## 递归分治
+[递归思路](https://lyl0724.github.io/2020/01/25/1/)
+1) 找整个递归的终止条件：递归应该在什么时候结束？
+2) 找返回值：应该给上一级返回什么信息？
+3) 本级递归应该做什么：在这一级递归中，应该完成什么任务？
 ### 习题
 [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
 * 调库函数O(1)
@@ -168,6 +172,9 @@ BFS：
 * Map 复杂度O(n)
 * 排序 复杂度O($nlogn$)
 * 分治
+
+[平衡二叉树](https://leetcode-cn.com/problems/balanced-binary-tree/)
+[对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
 ## 贪心算法
 适用场景：子问题最优解能递推到最终问题最优解。
 []()

@@ -99,4 +99,3 @@ StandardScaler，用于标准正态变换；以及Normalizer，提供了我们�
 
 ## 你觉得Spark和Hadoop的区别是什么,请简要说一说？
 Hadoop适合离线分析，是批处理；Spark适合实时分析，是近实时流，微批处理。
-

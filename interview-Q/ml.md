@@ -32,7 +32,6 @@
       - [LR，SVM中数据之间应该满足什么条件](#lrsvm中数据之间应该满足什么条件)
     - [Kernel](#kernel)
     - [Kmeans，KNN区别](#kmeansknn区别)
-    - [CNN模型结构，卷积层的作用](#cnn模型结构卷积层的作用)
     - [Ensemble：将多个分类方法聚集在一起，以提高分类的准确率](#ensemble将多个分类方法聚集在一起以提高分类的准确率)
     - [GBDT和决策树(RF)](#gbdt和决策树rf)
     - [GBDT和XGBoost的区别（至少3方面）](#gbdt和xgboost的区别至少3方面)
@@ -157,11 +156,7 @@ KNN：分类算法，距离最近的k个样本数据的分类来代表目标数�
 Kmeans：k-均值聚类分析
 **kmeans如何处理异常点**
 ****
-### CNN模型结构，卷积层的作用
-卷积层：提取特征
-池化层：：对输入的特征图进行压缩，提取主要特征
-全连接层：分类
-****
+
 ### Ensemble：将多个分类方法聚集在一起，以提高分类的准确率
 分类：Bagging（eg:随机森林），Boosting（eg:AdaBoost，XGboost，GBDT），Stacking
 **Bagging**：有放回选取，训练集之间是独立。并行
