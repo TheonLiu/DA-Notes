@@ -9,6 +9,7 @@
     - [如果因为写的代码出现问题，导致取数出现NULL，该如何做](#如果因为写的代码出现问题导致取数出现null该如何做)
     - [数据清洗（完整性，唯一性，权威性，合法性，一致性）](#数据清洗完整性唯一性权威性合法性一致性)
     - [偏态分布怎么处理](#偏态分布怎么处理)
+    - [归一化好处](#归一化好处)
     - [降维:](#降维)
   - [解释维度灾难，如何解决？](#解释维度灾难如何解决)
   - [knn如何处理高维特征？](#knn如何处理高维特征)
@@ -33,6 +34,8 @@
     - [Kernel](#kernel)
     - [Kmeans，KNN区别](#kmeansknn区别)
     - [Ensemble：将多个分类方法聚集在一起，以提高分类的准确率](#ensemble将多个分类方法聚集在一起以提高分类的准确率)
+    - [GBDT过程](#gbdt过程)
+    - [GBDT调参](#gbdt调参)
     - [GBDT和决策树(RF)](#gbdt和决策树rf)
     - [GBDT和XGBoost的区别（至少3方面）](#gbdt和xgboost的区别至少3方面)
     - [GBDT剪枝是怎么样的](#gbdt剪枝是怎么样的)
@@ -65,6 +68,11 @@
 ### 数据清洗（完整性，唯一性，权威性，合法性，一致性）
 唯一性：去重。合法性：人工处理，设置警告。
 ### 偏态分布怎么处理
+### 归一化好处
+归一化的好处主要有两点：
+**加快收敛速度**：在进行梯度下降的过程中，如果不进行归一化，那下降过程很可能会是“之”字形，归一化后每一步都朝着损失函数最低点前进。
+**提升模型效果**：如果不进行归一化，模型可能会偏向尺度较大的特征，导致模型交过变差。
+AdaBoost、GBDT、XGBoost、LR、SVM之类的最优化算法需要归一化；而决策树、RF这类的概率模型主要关注变量的分布，是否缩放不影响分裂点，所以不需要归一化。
 
 ### 降维:
 **PCA**:
@@ -78,7 +86,9 @@
 ## knn如何处理高维特征？
 ## kmeans如何处理高维特征？
 ## 3. 数据集分割
-
+**在保留交叉验证**（hand-out cross validation）中，随机将训练样本集分成训练集（training set）和交叉验证集（cross validation set）,比如分别占70%，30%。然后使用模型在训练集上学习得到假设。最后使用交叉验证集对假设进行验证，看预测的是否准确，选择具有误差小的模型。
+**k折交叉验证**（K-fold cross validation），就是把样本集S分成k份，分别使用其中的(k-1)份作为训练集，剩下的1份作为交叉验证集，最后取最后的平均误差，来评估这个模型。
+**留一法**（leave one out， LOO）就是m-fold cross validation，m是样本集的大小，就是只留下一个样本来验证模型的准确性
 ## 4. 模型的选择与训练
 ### 机器学习分类：
 **监督机器学习**：线性回归；逻辑回归；随机森林；梯度下降决策树；支持向量机（SVM）；神经网络；决策树；朴素贝叶斯；邻近邻居（Nearest Neighbor）
@@ -171,6 +181,17 @@ Kmeans：k-均值聚类分析
   * Weighted voting
   * Classification or regression
   * Prone to overfitting (unless base learners are simple)
+### GBDT过程
+[GBDT过程](https://blog.csdn.net/yingfengfeixiang/article/details/79728639)
+### GBDT调参
+[调参](https://www.cnblogs.com/pinard/p/6143927.html)
+划分时考虑的最大特征数max_features：默认全部
+决策树最大深度max_depth
+内部节点再划分所需最小样本数min_samples_split
+叶子节点最少样本数min_samples_leaf：叶节点过少会被剪枝
+叶子节点最小的样本权重和min_weight_fraction_leaf
+最大叶子节点数max_leaf_nodes
+节点划分最小不纯度min_impurity_split:
 ### GBDT和决策树(RF)
 GBDT和随机森林的不同点：
 GBDT:用分类器（如CART、RF）拟合损失函数梯度。损失函数:期望输出与分类器预测输出的查，即bias
