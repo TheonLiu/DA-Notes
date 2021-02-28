@@ -15,6 +15,7 @@
   - [树和图](#树和图)
     - [二叉树遍历](#二叉树遍历)
     - [习题](#习题-3)
+  - [二叉搜索树:](#二叉搜索树)
   - [递归分治](#递归分治)
     - [习题](#习题-4)
   - [贪心算法](#贪心算法)
@@ -23,6 +24,9 @@
     - [习题](#习题-6)
   - [剪枝](#剪枝)
     - [习题](#习题-7)
+  - [排序](#排序)
+    - [冒泡排序](#冒泡排序)
+    - [归并排序](#归并排序)
 
 <!-- /TOC -->
 # Algorithm
@@ -155,6 +159,10 @@ Tree, Binary Tree, Binary Search Tree, Graph
 * 递归。
 [二叉树层次遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 BFS：
+
+## 二叉搜索树:
+* 左子树均小于根节点，右子树均大于根节点
+* 中序为从小到大
 ## 递归分治
 [递归思路](https://lyl0724.github.io/2020/01/25/1/)
 1) 找整个递归的终止条件：递归应该在什么时候结束？
@@ -202,3 +210,9 @@ BFS：
 ### 习题
 [N皇后](https://leetcode-cn.com/problems/n-queens/)
 [N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)
+
+## 排序 
+### 冒泡排序 
+$O(n^2)$
+### 归并排序
+$O(nlogn)$
